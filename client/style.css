@@ -1,0 +1,85 @@
+html, body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(45deg, #ef2929, #edd400, #73d216, #3465a4, #613a6a);
+}
+
+#login {
+    position: absolute;
+    width: 20%;
+    height: 70vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background-color: papayawhip;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#login-inputs {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    place-items: center;
+}
+
+#login-title {
+    margin-top: 15%;
+}
+
+#login-logo {
+    width: 20%;
+    margin-bottom: 20%;
+    margin-top: 20%;
+}
+
+.login-inputs {
+    margin: 5%;
+}
+
+#submit {
+    width: 40%;
+}
+
+#logo {
+    width: 10%;
+    position: absolute;
+    right: 7%;
+    top: 10%;
+    z-index: 1;
+    opacity: 0;
+}
+
+#target {
+    width: 60%;
+    height: 70vh;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+#message-panel {
+    width: 60%;
+    height: 10vh;
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, -88%);
+    display: flex;
+    place-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#input {
+    width: 70%;
+}
+
+button {
+    width: 15%;
+}

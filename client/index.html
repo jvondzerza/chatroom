@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSN Chatroom</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container" id="login">
+    <div class="main" id="login-inputs">
+        <h2 id="login-title">JSN Login</h2>
+        <img src="images/msn-logo.png" alt="logo" id="login-logo">
+        <input class="login-inputs" type="text" name="username" id="username" placeholder="Username"/>
+        <input class="login-inputs" type="password" name="password" id="password" placeholder="Password"/>
+        <button class="login-inputs" id="submit">Submit</button>
+    </div>
+</div>
+
+<img src="images/msn-logo.png" alt="logo" id="logo">
+
+<div id="target"></div>
+
+<div id="message-panel">
+    <input type="text" id="input">
+    <button id="me">Just me</button>
+    <button id="all">Send to all</button>
+    <label for="colors">Font color</label>
+    <select id="colors"></select>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+<script src="socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
