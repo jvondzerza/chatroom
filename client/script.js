@@ -6,6 +6,7 @@ let input = document.getElementById("input");
 let username = document.getElementById("username");
 let submit = document.getElementById("submit");
 let colors = document.getElementById("colors");
+let userList = document.getElementById("user-list");
 let loginTimeline = gsap.timeline();
 let loginTimelineCtd = gsap.timeline({repeat: -1});
 let logoTimeline = gsap.timeline();
@@ -30,9 +31,11 @@ window.addEventListener("load", () => {
 })
 
 submit.addEventListener("click", () => {
-    document.getElementById("login").style.display = "none";
+    loginTimeline
+        .to('#login-logo', {y: -100, x: -150, skewX: 5, rotationY: -75, opacity: 0, duration: 1})
+        .to("#login", {display: "none", opacity: 0, duration: 1})
     socket.emit('logUser', (username.value));
-    logoTimeline.fromTo('#logo', {opacity: 0, y: 100, x: 150, skewX: 5}, {opacity: 1, y: 0, x: 0, skewX: 0, rotation: 0, ease: "slow(0.1, 2, false)", duration: 2})
+    logoTimeline.fromTo('#logo', {opacity: 0, y: 100, x: 150, skewX: 5}, {opacity: 1, y: 0, x: 0, skewX: 0, rotation: 0, ease: "slow(0.1, 2, false)", duration: 2, delay: 1})
 })
 
 all.addEventListener("click", () => {
@@ -44,18 +47,24 @@ all.addEventListener("click", () => {
 me.addEventListener("click", () => {
     socket.emit('sendToMe', (` ${username.value}: ${input.value}`));
     target.style.color = colors.value;
-    input.style.color = colors.value;
 })
 
 socket.on('displayMessage', (message) => {
     target.innerHTML += '<br>' + message;
 });
 
-socket.on('displayUser', (user) => {
+socket.on('logUserInChat', (user) => {
     target.innerHTML += '<br>' + user + " joined the chat.";
+})
+
+socket.on('logAllUsers', (users) => {
+    userList.innerHTML = users.join('<br>')
 })
 
 socket.on('userLeft', (user) => {
     target.innerHTML += '<br>' + user + " left the chat.";
 })
 
+socket.on('remainingUsers', (users) => {
+    userList.innerHTML = users.join('<br>');
+})
